@@ -1,5 +1,5 @@
 {
-    "name": "sdui/laravel-sdui",
+    "name": "orzubek-rakhimov/laravel-sdui",
     "description": "Server-Driven UI framework for Laravel - Build dynamic, native-like mobile and web interfaces declaratively in PHP",
     "version": "1.0.0",
     "type": "library",
