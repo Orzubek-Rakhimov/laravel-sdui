@@ -1,0 +1,29 @@
+{
+    "name": "sdui/laravel-sdui",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "SDUI\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rahimov Orzubek",
+            "email": "145760665+Orzubek-Rakhimov@users.noreply.github.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SDUI\\SDUIServiceProvider"
+            ],
+            "aliases": {
+                "SDUI": "SDUI\\Facades\\SDUI"
+            }
+    }
+  },
+    "require": {
+        "php": "^8.3",
+        "illuminate/support": "^12.0|^13.0"
+    }
+}
