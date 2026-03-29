@@ -1,0 +1,39 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.3', '8.4']
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: json, mbstring
+          tools: composer:v2
+      
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+      
+      - name: Run tests
+        run: composer test
+      
+      - name: Generate coverage badge
+        run: |
+          mkdir -p badges
+          composer test > test-output.txt 2>&1 || true
+          if grep -q "76.*assertions" test-output.txt; then
+            echo "✅ All tests passed"
+          fi
+

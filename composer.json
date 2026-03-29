@@ -1,10 +1,15 @@
 {
     "name": "sdui/laravel-sdui",
+    "description": "Server-Driven UI framework for Laravel - Build dynamic, native-like mobile and web interfaces declaratively in PHP",
+    "version": "1.0.0",
     "type": "library",
     "autoload": {
         "psr-4": {
             "SDUI\\": "src/"
-        }
+        },
+        "classmap": [
+            "src/Components/Components.php"
+        ]
     },
     "authors": [
         {
@@ -25,5 +30,18 @@
     "require": {
         "php": "^8.3",
         "illuminate/support": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-html coverage --coverage-text",
+        "test:watch": "phpunit --watch"
     }
 }
